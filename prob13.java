@@ -32,7 +32,7 @@ public class prob13 {
             {
                 System.out.print("(" + x1 + "," + y1 + ") ");
             }
-            else if (y2 > 0 && y2 <= 8)
+            if (y2 > 0 && y2 <= 8)
             {
                 System.out.print("(" + x1 + "," + y2 + ") ");
             }
@@ -43,7 +43,7 @@ public class prob13 {
             {
                 System.out.print("(" + x2 + "," + y3 + ") ");
             }
-            else if (y4 > 0 && y4 <= 8)
+            if (y4 > 0 && y4 <= 8)
             {
                 System.out.print("(" + x2 + "," + y4 + ") ");
             }
@@ -55,7 +55,7 @@ public class prob13 {
             {
                 System.out.print("(" + x3 + "," + y3 + ") ");
             }
-            else if (y4 > 0 && y4 <= 8)
+            if (y4 > 0 && y4 <= 8)
             {
                 System.out.print("(" + x3 + "," + y4 + ") ");
             }
@@ -67,7 +67,7 @@ public class prob13 {
             {
                 System.out.print("(" + x4 + "," + y1 + ") ");
             }
-            else if (y2 > 0 && y2 <= 8)
+            if (y2 > 0 && y2 <= 8)
             {
                 System.out.print("(" + x4 + "," + y2 + ") ");
             }
