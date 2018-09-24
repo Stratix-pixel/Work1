@@ -1,7 +1,0 @@
-"Gold":[
-{
-"name":"Gold",
-"quantity":"",
-
-},
-]
