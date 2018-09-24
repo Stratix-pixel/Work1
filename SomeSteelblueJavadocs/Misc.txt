@@ -1,0 +1,16 @@
+"Misc":[
+{
+"name":"Health potion",
+"quantity":"",
+}
+{
+"name":"Mana potion",
+"quantity":"",
+}
+{
+"name":"Antidote",
+"quantity":"",
+}
+,
+
+]

@@ -1,0 +1,42 @@
+"Weapons":[
+{
+"name":"Staff of magic",
+"hpi":"20",
+"mpi":"25",
+"dmgi":"5",
+"equiped":"0",
+"rarity":"Common",
+},
+{
+"name":"Sword of Eternal Darkness",
+"hpi":"50",
+"mpi":"30",
+"dmgi":"7",
+"equiped":"0",
+"rarity":"Rare",
+},
+{
+"name":"Hammer of a thousand universes",
+"hpi":"100",
+"mpi":"100",
+"dmgi":"40",
+"equiped":"0",
+"rarity":"Epic",
+},
+{
+"name":"Horn of Holy Cow",
+"hpi":"30",
+"mpi":"25",
+"dmgi":"12",
+"equiped":"0",
+"rarity":"Rare",
+},
+{
+"name":"Justice Mace",
+"hpi":"25",
+"mpi":"15",
+"dmgi":"6",
+"equiped":"0",
+"rarity":"Uncommon",
+},
+]
