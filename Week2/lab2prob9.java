@@ -23,7 +23,7 @@ public class lab2prob9 {
         while (decimal > 0) {
             rem = decimal % base;
             decimal /= base;
-            if (base == 16) {
+            if (base >= 10) {
                 if (rem == 10)
                     res += 'A';
                 else if (rem == 11)
