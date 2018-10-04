@@ -20,19 +20,22 @@ public class lab3 {
         return y;
     }
 
-    public static int[] insertAt(int[] x, int index, int value) {
+      public static int[] insertAt(int[] x, int index, int value) {
         if (index < 0 || index > x.length) {
             System.out.println("index " + index + " is out of range");
             return x;
         }
         int[] newArray = new int[x.length + 1];
         for (int i = 0; i < newArray.length; i++) {
-            if (i == index)
+            if (i == index){
                 newArray[i] = value;
-            if (i < index)
+            }
+            if (i < index){
                 newArray[i] = x[i];
-            if (i > index)
+            }
+            if (i > index){
                 newArray[i] = x[i - 1];
+            }
         }
         return newArray;
     }
