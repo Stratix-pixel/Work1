@@ -1,0 +1,42 @@
+
+
+Node
+	+value
+	-next
+	-previous
+	
+	readValue
+	writeValue
+	
+LinkedList
+	-nodeStart
+	-nodeEnd
+	
+	addNode
+	insertNode
+	deleteNode
+	valueAt
+	print
+	
+	
+Queue extends LinkedList
+	insertNode(exception)
+	deleteNode(index = 0)
+	valueAt(index = 0)
+	push
+	pop
+	pick
+	
+Stack extends LinkedList
+	addNode(exception)
+	insertNode(index = 0)
+	deleteNode(index = 0)
+	valueAt(index = 0)
+	push
+	pop
+	pick
+	
+
+
+	
+	
