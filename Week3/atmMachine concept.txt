@@ -1,0 +1,58 @@
+ATM machine
+	-cardReader
+	-entryDevice
+	-availableCash
+	-cashDispenser
+	-billReceipt
+	-transactionFee
+	
+	
+	readCard 1
+	readPin 2
+	readAmount 3
+	confirmTransactionFee
+	releaseBillReceipt
+	releaseAmount 4
+	releaseCard 5
+	
+	
+Card
+	-cardNumber
+	-expirationDate
+	-name ?? irrelevant
+	
+	
+BankAccount
+	-bankCard
+	-accountNumber
+	-balance
+	
+	checkAmount 4
+	withdrawAmount 4
+	
+
+BankCard
+	-cardNumber
+	-expiration
+	-pin
+	-limit
+	-checkCardAndPin 2
+	
+Human
+	-card
+	-pin
+	-amount
+	
+	insertCard 1
+	inputPin 2
+	selectAmount 3
+	confirmTransactionFee
+	confirmBillReceipt
+	retrieveAmount 4
+	retrieveCard 5
+	
+Bank
+	bankAccount
+	checkCardAndPin 2
+	checkAmount 4
+	
