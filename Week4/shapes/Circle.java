@@ -37,7 +37,7 @@ public class Circle extends Shapes  {
 
     @Override
     public void enlarge(double factor) {
-
+        radius = radius*factor;
     }
 
     public String toString () {
