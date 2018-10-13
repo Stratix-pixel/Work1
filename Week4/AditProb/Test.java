@@ -9,6 +9,7 @@ public class Test {
 
         MyCircle c1 = new MyCircle(2, 4, 6);
         MyCircle c2 = new MyCircle(p1,3);
+        MyCircle c3 = new MyCircle(new MyPoint(2,3),4);
 
 
 
