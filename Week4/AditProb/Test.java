@@ -36,16 +36,25 @@ public class Test {
         System.out.println("Distance is " + p1.distance(2, 8));
         System.out.println("Distance is " + p2.distance(p1));
 
-        for (int i = 0; i < points.length; i++) {
+        int a[] = new int[points.length];
+
+        for (int i = 0; i < a.length; i++) {
             Scanner s = new Scanner(System.in);
-            System.out.print("enter number");
-            int a = s.nextInt();
+            System.out.print("Enter radius of circle: ");
+            a[i] = s.nextInt();
+
         }
 
-
-
-
-
+        int temp;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] > a[j]) {
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        System.out.println("The circle with the lowest area is the one with radius: " + a[0]);
     }
-
 }
