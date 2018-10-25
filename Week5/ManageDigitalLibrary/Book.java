@@ -1,10 +1,11 @@
 package ManageDigitalLibrary;
 
-public class Book {
+public class Book extends MediaEntity{
     private String author;
     private String publishingHouse;
 
-    public Book(String author, String publishingHouse) {
+    public Book(String type, String title, Integer noOfDownloads, String author, String publishingHouse) {
+        super(type, title, noOfDownloads);
         this.author = author;
         this.publishingHouse = publishingHouse;
     }
@@ -25,4 +26,27 @@ public class Book {
         this.publishingHouse = publishingHouse;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return Objects.equals(author, book.author) &&
+                Objects.equals(publishingHouse, book.publishingHouse);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(author, publishingHouse);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" + "type=" + this.getType() +
+                ", title=" + this.getTitle() +
+                ", noOfDownloads="+ this.getNoOfDownloads()+
+                ", author='" + author + '\'' +
+                ", publishingHouse='" + publishingHouse + '\'' +
+                '}';
+    }
 }
