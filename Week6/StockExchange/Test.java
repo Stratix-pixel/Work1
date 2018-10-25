@@ -14,8 +14,15 @@ public class Test {
         StockUpdate su2= new StockUpdate("MSFT", myDate,36.56);
 
 
-        List<StockUpdate> listOfPayments = new LinkedList<>();
+        List<StockUpdate> listOfUpdates = new LinkedList<>();
+        List<StockUpdate> listOfQueries = new LinkedList<>();
 
+        StockMarket sm1 = new StockMarket(listOfUpdates,listOfQueries);
+
+        sm1.add(su1);
+        sm1.add(su2);
+
+        System.out.println(sm1);
 
 
     }
