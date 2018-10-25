@@ -1,31 +1,39 @@
 package ManageDigitalLibrary;
 
-public class Video{
-    private double duration;
-    private boolean fullHD;
+public class Video extends MediaEntity{
+    private Integer duration;
+    private Boolean fullHD;
+
+    public Video(String type, String title, Integer noOfDownloads, Integer duration, Boolean fullHD) {
+        super(type, title, noOfDownloads);
+        this.duration = duration;
+        this.fullHD = fullHD;
+    }
 
 
-    public double getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
-    public boolean isFullHD() {
+    public Boolean getFullHD() {
         return fullHD;
     }
 
-    public void setFullHD(boolean fullHD) {
+    public void setFullHD(Boolean fullHD) {
         this.fullHD = fullHD;
     }
 
-    public Video(double duration, boolean fullHD) {
-        this.duration = duration;
-        this.fullHD = fullHD;
+    @Override
+    public String toString() {
+        return "Video{" + "type=" + this.getType() +
+                ", title=" + this.getTitle() +
+                ", noOfDownloads="+ this.getNoOfDownloads()+
+                ", duration=" + duration +
+                ", fullHD=" + fullHD +
+                '}';
     }
-
-
-
 }
