@@ -1,4 +1,3 @@
-package StockExchange;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -37,9 +36,13 @@ public class StockMarket {
     }
 
 
-
-
-
+    @Override
+    public String toString() {
+        return "StockMarket{" +
+                "update=" + update +
+                ", queryUpdates=" + queryUpdates +
+                '}';
+    }
 
 
 }
