@@ -1,4 +1,4 @@
-package StockExchange;
+
 
 import java.util.Date;
 import java.util.Objects;
@@ -58,6 +58,12 @@ public class StockUpdate implements Comparable<StockUpdate> {
         return 0;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "StockUpdate{" +
+                "stockCode='" + stockCode + '\'' +
+                ", date=" + date +
+                ", price=" + price +
+                '}';
+    }
 }
