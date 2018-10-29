@@ -1,41 +1,34 @@
 
-
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class StockUpdate implements Comparable<StockUpdate> {
-    String stockCode;
-    Date date;
-    double price;
+public class StockUpdate implements Comparable{
+    private Code stockCode;
+    private LocalDateTime dateTime;
+    private double price;
 
-    public StockUpdate(String stockCode, Date date, double price) {
+    public StockUpdate(Code stockCode, LocalDateTime dateTime, double price) {
         this.stockCode = stockCode;
-        this.date = date;
+        this.dateTime = dateTime;
         this.price = price;
     }
 
-    public String getStockCode() {
+    public StockUpdate(Code stockCode, double price){
+        this.stockCode = stockCode;
+        this.dateTime = LocalDateTime.now();
+        this.price = price;
+    }
+
+    public Code getStockCode() {
         return stockCode;
     }
 
-    public void setStockCode(String stockCode) {
-        this.stockCode = stockCode;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public LocalDateTime getDate() {
+        return dateTime;
     }
 
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     @Override
@@ -45,25 +38,27 @@ public class StockUpdate implements Comparable<StockUpdate> {
         StockUpdate that = (StockUpdate) o;
         return Double.compare(that.price, price) == 0 &&
                 Objects.equals(stockCode, that.stockCode) &&
-                Objects.equals(date, that.date);
+                Objects.equals(dateTime, that.dateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(stockCode, date, price);
+        return Objects.hash(stockCode, dateTime, price);
     }
 
-    @Override
-    public int compareTo(StockUpdate o) {
-        return 0;
-    }
 
     @Override
     public String toString() {
         return "StockUpdate{" +
-                "stockCode='" + stockCode + '\'' +
-                ", date=" + date +
+                "stockCode=" + stockCode +
+                ", dateTime=" + dateTime +
                 ", price=" + price +
-                '}';
+                '}' + "\n";
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        StockUpdate s = (StockUpdate) o;
+        return this.getDate().compareTo(s.getDate());
     }
 }
