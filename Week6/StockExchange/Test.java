@@ -1,35 +1,40 @@
-package StockExchange;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.time.LocalDateTime;
 
-public class Test {
-    public static void main(String[] args) {
-
-        Date myDate = new Date(2018, 10, 15);
-
-        StockUpdate su1 = new StockUpdate("AMZN", new Date(2018, 8, 15),55.44);
-        StockUpdate su2 = new StockUpdate("MSFT", new Date(2018, 9, 15),36.56);
-        StockUpdate su3 = new StockUpdate("INTC", new Date(2018, 6, 11),63.29);
-        StockUpdate su4 = new StockUpdate("TSLA", new Date(2018, 10, 23),44.19);
+public class TestStocks {
+    public static void main(String[] args){
+        StockUpdate s1 = new StockUpdate(SSNLF, LocalDateTime.of(2017,2,11,12,18),1234.45);
+        StockUpdate s2 = new StockUpdate(MSFT, LocalDateTime.of(2018,8,10,12,2),754.24);
+        StockUpdate s3 = new StockUpdate(APPL, LocalDateTime.of(2017,1,19,11,3), 7412.536);
+        StockUpdate s4 = new StockUpdate(SSNLF, LocalDateTime.of(2016,6,7,9,25),725.87);
 
 
-        List<StockUpdate> listOfUpdates = new LinkedList<>();
-        List<StockUpdate> listOfQueries = new LinkedList<>();
+        StockMarket listOfStockUpdates = new StockMarket();
+        listOfStockUpdates.add(s1);
+        listOfStockUpdates.addStocks(s2,s3,s4);
 
-        StockMarket sm1 = new StockMarket(listOfUpdates,listOfQueries);
+        LocalDateTime date1 = LocalDateTime.of(2017,1,8,11,30);
+        LocalDateTime date2 = LocalDateTime.of(2018,10,18,6,1);
+        Code myCode = Code.AMZN;
 
-        sm1.add(su1);
-        sm1.add(su2);
-        sm1.add(su3);
-        sm1.add(su4);
+        System.out.println("All stock updates between " + date1 + " and " + date2 + ": ");
+        System.out.println(listOfStockUpdates.queryUpdates(date1,date2).size() != 0  ? listOfStockUpdates.queryUpdates(date1,date2):
+                "No stock updates between these dates.");
 
-        System.out.println(sm1);
+        String result2= "All stock updates between " + date1 +
+                " and " + date2 + " for " + myCode + ": " + "\n" +
+                listOfStockUpdates.queryUpdates(date1,date2,myCode);
+        System.out.println(listOfStockUpdates.queryUpdates(date1,date2,myCode).size() != 0 ? result2 : "There are no stock updates between " +
+                date1 + " and " + date2 + " for " + myCode);
 
+        String result3 = "The price that " + myCode+ " had at/close to date " + date1 +": " + listOfStockUpdates.getPrice(date1,myCode);
+        System.out.println(listOfStockUpdates.getPrice(date1,myCode) != null ? result3 : "There is no price for " + myCode
+                + " code at/close to date " + date1 + ".");
 
-
+        System.out.println("The prices for all stocks at " + date1 + ":");
+        System.out.println(listOfStockUpdates.getPrices(date1).size() == 0 ? "No prices for this date":
+                listOfStockUpdates.getPrices(date1));
 
     }
 }
+
