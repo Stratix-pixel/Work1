@@ -12,12 +12,12 @@ public class Reactor {
     public int getThroughputLevel() {
         return throughputLevel;
     }
-    
+
     public void setThroughputLevel(int throughputLevel) {
         this.throughputLevel = throughputLevel;
     }
 
-    public void increaseThroughput() {
+    public void increaseThroughput() throws Exception{
         Random r = new Random();
         int low = 1;
         int high = 100;
