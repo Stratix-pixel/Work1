@@ -31,11 +31,10 @@ public class PlantController {
     }
 
     public void runSystem(Reactor reactor, PowerPlant powerplant) {
-        if (reactorOutputDifference(reactor, powerplant)) {
-            reactorAdjust(reactor, powerplant);
+        while (reactor.getThroughputLevel() > 0) {
+            if (reactorOutputDifference(reactor, powerplant)) reactorAdjust(reactor, powerplant);
+            if (reactor.getReactorStatus()) powerplant.soundTheAlarm(); shutdownReactor(reactor);
         }
-        if (reactor.getReactorStatus()) powerplant.soundTheAlarm();
-        shutdownReactor(reactor);
     }
 
 }
