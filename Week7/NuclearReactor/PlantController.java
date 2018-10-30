@@ -9,7 +9,7 @@ public class PlantController {
         this.reactor = reactor;
     }
 
-    public boolean reactorOutputDifference(Reactor reactor, PowerPlant powerplant) {
+    public boolean reactorOutputDifference() {
         int difference = reactor.getThroughputLevel() - powerplant.getDesiredOutput();
         if (difference > 10) {
             System.out.println("The difference between the reactor throughput and the desired output is larger than 10! this needs adjustment");
@@ -19,21 +19,31 @@ public class PlantController {
         }
     }
 
-    public void reactorAdjust(Reactor reactor, PowerPlant powerPlant) {
+    public void reactorAdjust() throws Exception{
         int difference = reactor.getThroughputLevel() - powerplant.getDesiredOutput();
         if (difference > 10) reactor.increaseThroughput();
     }
 
-    public void shutdownReactor(Reactor reactor) {
+    public void shutdownReactor() {
         while (reactor.getThroughputLevel() > 0) {
             reactor.decreaseThroughput();
         }
     }
 
-    public void runSystem(Reactor reactor, PowerPlant powerplant) {
+    public void runSystem() throws Exception{
         while (reactor.getThroughputLevel() > 0) {
-            if (reactorOutputDifference(reactor, powerplant)) reactorAdjust(reactor, powerplant);
-            if (reactor.getReactorStatus()) powerplant.soundTheAlarm(); shutdownReactor(reactor);
+            if (reactorOutputDifference()) {
+                try {
+                    reactorAdjust();
+                } catch (IllegalStateException i) {
+                    powerplant.soundTheAlarm();
+                    shutdownReactor();
+                    System.out.println("Reactor is shutting down");
+                    break;
+                }
+            } else {
+                System.out.println("Reactor is stabilizing, Throughput level is : " + reactor.getThroughputLevel());
+            }
         }
     }
 
