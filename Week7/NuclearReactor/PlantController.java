@@ -19,22 +19,23 @@ public class PlantController {
         }
     }
 
-    public void reactorOutputDifferenceAdjust(Reactor reactor, PowerPlant powerPlant) {
+    public void reactorAdjust(Reactor reactor, PowerPlant powerPlant) {
         int difference = reactor.getThroughputLevel() - powerplant.getDesiredOutput();
-        if (difference > 10) {
-            reactor.increaseThroughput();
-        }
+        if (difference > 10) reactor.increaseThroughput();
     }
 
-    public void shutdownReactor(Reactor reactor){
-        while (reactor.getThroughputLevel() > 0){
+    public void shutdownReactor(Reactor reactor) {
+        while (reactor.getThroughputLevel() > 0) {
             reactor.decreaseThroughput();
         }
     }
 
-    public void runSystem(){
-
+    public void runSystem(Reactor reactor, PowerPlant powerplant) {
+        if (reactorOutputDifference(reactor, powerplant)) {
+            reactorAdjust(reactor, powerplant);
+        }
+        if (reactor.getReactorStatus()) powerplant.soundTheAlarm();
+        shutdownReactor(reactor);
     }
-
 
 }
