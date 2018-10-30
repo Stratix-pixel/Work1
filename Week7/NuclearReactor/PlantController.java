@@ -1,8 +1,8 @@
 package NuclearReactor;
 
 public class PlantController {
-    PowerPlant powerplant;
-    Reactor reactor;
+    private PowerPlant powerplant;
+    private Reactor reactor;
 
     public PlantController(PowerPlant powerplant, Reactor reactor) {
         this.powerplant = powerplant;
