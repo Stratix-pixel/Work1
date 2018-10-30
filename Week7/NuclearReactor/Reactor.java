@@ -3,7 +3,7 @@ package NuclearReactor;
 import java.util.Random;
 
 public class Reactor {
-    private int throughputLevel = 0;
+    private int throughputLevel;
 
     public Reactor(int throughputLevel) {
         this.throughputLevel = throughputLevel;
