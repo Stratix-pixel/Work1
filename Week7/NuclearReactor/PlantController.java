@@ -19,8 +19,20 @@ public class PlantController {
         }
     }
 
-    public void reactorOutputDifferenceAdjust(Reactor reactor, PowerPlant powerPlant){
-        
+    public void reactorOutputDifferenceAdjust(Reactor reactor, PowerPlant powerPlant) {
+        int difference = reactor.getThroughputLevel() - powerplant.getDesiredOutput();
+        if (difference > 10) {
+            reactor.increaseThroughput();
+        }
+    }
+
+    public void shutdownReactor(Reactor reactor){
+        while (reactor.getThroughputLevel() > 0){
+            reactor.decreaseThroughput();
+        }
+    }
+
+    public void runSystem(){
 
     }
 
