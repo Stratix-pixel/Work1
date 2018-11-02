@@ -21,7 +21,11 @@ public class PlantController {
 
     public void reactorAdjust() throws Exception{
         int difference = reactor.getThroughputLevel() - powerplant.getDesiredOutput();
-        if (difference > 10) reactor.increaseThroughput();
+        while(difference > 10 || difference <-10 )
+        {
+            if (difference < -10) reactor.increaseThroughput();
+            if (difference > 10) reactor.decreaseThroughput();
+        }
     }
 
     public void shutdownReactor() {
