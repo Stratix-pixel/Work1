@@ -43,12 +43,14 @@ public class PlantController {
                     powerplant.soundTheAlarm();
                     shutdownReactor();
                     System.out.println("Reactor is shutting down");
-                    break;
                 }
             } else {
                 System.out.println("Reactor is stabilizing, Throughput level is : " + reactor.getThroughputLevel());
             }
         }
+        while (reactorOutputDifference()) ;
+        if (!reactorOutputDifference())
+            System.out.println("\n\n  The value the reactor has been stabilised is : " + reactor.throughputLevel);
     }
 
 }
