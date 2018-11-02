@@ -31,7 +31,9 @@ public class Reactor {
         Random r = new Random();
         int low = 1;
         int high = 100;
-        this.throughputLevel -= r.nextInt(high - low) + low;
+        do {
+            this.throughputLevel -= r.nextInt(high - low) + low;
+        } while (this.throughputLevel > 0);
     }
 
     public boolean getReactorStatus() {
