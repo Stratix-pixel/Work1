@@ -31,56 +31,30 @@ public class WordProcessor {
         }
     }
 
-    /*public static void wordWrap(BufferedReader br) throws Exception {
-        br = new BufferedReader(new FileReader("C:\\wantsome\\week7\\input.txt"));
-        StringBuilder sb = new StringBuilder();
-        int i = 0;
-        while (i + 60 < sb.length() && (i = sb.lastIndexOf(" ", i + 60)) != -1) {
-            sb.replace(i, i + 1, "\n");
-        }
-        System.out.println(sb.toString());
-    }
-*/
+    public static void wordWrap(BufferedReader br) throws Exception {
+        String s, ss;
+        File file = new File("C:\\wantsome\\week7\\input.txt");
+        StringBuilder lines = new StringBuilder((int) file.length());
+        br = new BufferedReader(new FileReader(file));
 
-    public static void wordWrap2(BufferedReader br) throws Exception {
-        br = new BufferedReader(new FileReader("C:\\wantsome\\week7\\input.txt"));
-        String strCurrentLine;
-        int i = 0;
-        //while ((strCurrentLine = br.readLine()) != null && i + 60) {
-      //      System.out.println(strCurrentLine);
-    //    }
-    }
-
-    public static void wordWrap2() throws Exception {
-        final int assumedLineLength = 50;
-        File file = new File("");
-        List<String> fileList = new ArrayList<String>((int) (file.length() / assumedLineLength) * 2);
-        BufferedReader reader = null;
-        int lineCount = 0;
+        int j = 0;
         try {
-            reader = new BufferedReader(new FileReader(file));
-            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-                fileList.add(line);
-                lineCount++;
+            while ((s = br.readLine()) != null) {
+                lines.append(s);
+                lines.append('\n');
             }
-        } catch (IOException e) {
-            System.err.format("Could not read %s: %s%n", file, e);
-            System.exit(1);
+            ss = lines.toString();
+            StringBuilder sb = new StringBuilder((ss));
+
+            while((j = sb.indexOf(" ", j + 60)) != -1){
+                sb.replace(j, j + 1, "\n");
+            }
+            System.out.println(sb.toString());
         } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                }
-            }
-        }
-        int repeats = Integer.parseInt("");
-        Random random = new Random();
-        for (int i = 0; i < repeats; i++) {
-            System.out.format("%d: %s%n", i, fileList.get(random.nextInt(lineCount - 1)));
-
-
+            br.close();
         }
     }
+
+  
 
 }
