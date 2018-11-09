@@ -54,6 +54,37 @@ public class WordProcessor {
             br.close();
         }
     }
+    
+    public static void wordWrap2(BufferedReader br, BufferedWriter bw) throws Exception {
+        String s, sss, ssss;
+        File file = new File("C:\\wantsome\\week7\\input.txt");
+        File outputFile = new File("C:\\wantsome\\week7\\output.txt");
+        StringBuilder lines = new StringBuilder((int) file.length());
+        br = new BufferedReader(new FileReader(file));
+        bw = new BufferedWriter(new FileWriter(outputFile));
+
+        int j = 0;
+        int maxWrapLength = 60;
+        try {
+            while ((s = br.readLine()) != null) {
+                lines.append(s);
+                lines.append('\n');
+            }
+            sss = lines.toString();
+            StringBuilder sbs = new StringBuilder((sss));
+
+            while ((j = sbs.indexOf(" ", j + maxWrapLength)) != -1) {
+                sbs.replace(j, j + 1, "\r\n");
+            }
+
+            ssss = sbs.toString();
+            bw.write(ssss);
+            System.out.println(ssss);
+        } finally {
+            br.close();
+            bw.close();
+        }
+    }
 
   
 
