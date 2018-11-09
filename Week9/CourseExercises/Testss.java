@@ -16,11 +16,11 @@ public class Testss {
 
 
         File f = new File("C:\\wantsome\\week7\\input.txt");
-        WordProcessor.countFromFile(f);
+        //WordProcessor.countFromFile(f);
 
         BufferedReader br1 = new BufferedReader(new FileReader(f));
-        WordProcessor.wordWrap2(br1);
-        System.out.println(br1);
+        //System.out.println(br1);
+        WordProcessor.wordWrap(br1);
 
 
 
