@@ -8,11 +8,11 @@ public class Testss {
         String s = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
         String s1 = "Ala bala portcola, a b,c d";
 
-        int count = WordProcessor.countWords(s1);
-        int count2 = WordProcessor.countWords2(s1);
+        //int count = WordProcessor.countWords(s1);
+        //int count2 = WordProcessor.countWords2(s1);
 
-        System.out.println(count);
-        System.out.println(count2);
+        //System.out.println(count);
+        //System.out.println(count2);
 
 
         File f = new File("C:\\wantsome\\week7\\input.txt");
