@@ -85,6 +85,11 @@ public class WordProcessor {
             bw.close();
         }
     }
+    
+    public static void wordWrap3(BufferedReader br, BufferedWriter bw) throws Exception{
+        // kinda wordWrap2 makes the thing already 
+
+    }
 
   
 
